@@ -11,14 +11,16 @@ def addCard():
         print("Invalid limit!")
         return
 
-    data = loadData()
-    data.append({
+    data = loadData()  
+
+    new_card = {
         "username": username,
         "password": password,
         "ccnum": ccnum,
         "limit": limit,
         "outstanding": 0
-    })
+    }
+    data.append(new_card)  
 
     with open(FILE_PATH, "w") as f:
         json.dump(data, f, indent=4)
